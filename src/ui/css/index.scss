@@ -1,0 +1,107 @@
+// @import './fonts/fonts.css';
+
+$titleFonts: montserrat, sans-serif;
+$contentFonts: montserrat, sans-serif;
+
+.main {
+  display: flex;
+}
+
+.sidebar {
+  min-height: 100vh;
+  height: 100%;
+  border-right: 2px solid #B3B3B3;
+}
+
+.sidebar-item {
+  padding: 20px 40px 20px 20px;
+  border-bottom: 2px solid #B3B3B3;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: $titleFonts;
+}
+
+.sidebar-item-selected {
+  background-color: #2680EB;
+  color: #ffffff;
+}
+
+.add-project {
+  color: #B3B3B3;
+}
+
+.add-project:hover {
+  color: #000000;
+  cursor: pointer;
+}
+
+.project {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.project-title {
+  font-size: 2rem;
+  font-family: $titleFonts;
+  margin-bottom: 20px;
+}
+
+@keyframes status-animation {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+
+  50% {
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+.project-status-container {
+  display: flex;
+
+  .project-status-animation-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &.positive {
+      background-color: #369445;
+      .project-status-circle {
+        background-color: #44B556;
+      }
+    }
+
+    &.negative {
+      background-color: darkred;
+      .project-status-circle {
+        background-color: red;
+      }
+    }
+  
+    .project-status-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      animation-name: status-animation;
+      animation-iteration-count:infinite;
+      animation-duration: 5s;
+    }
+  }
+
+  .project-status-text {
+    font-family: $titleFonts;
+    margin-left: 20px;
+    color: #707070;
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "parcel-plugin-web-ui",
+  "version": "0.0.1",
+  "author": "Jasper De Moor",
+  "description": "Parcel plugin that provides a detailed web UI",
+  "license": "MIT",
+  "main": "./dist.js",
+  "scripts": {
+    "changelog": "auto-changelog",
+    "example": "node ./example/run.js",
+    "build-ui": "parcel watch ./src/ui/index.html --out-dir ./ui-build --no-autoinstall"
+  },
+  "keywords": [
+    "parcel",
+    "web",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DeMoorJasper/parcel-plugin-web-ui.git"
+  },
+  "peerDependencies": {
+    "parcel-bundler": "^1.9.7"
+  },
+  "devDependencies": {
+    "auto-changelog": "^1.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "mocha": "^5.1.1",
+    "parcel-assert-bundle-tree": "^1.0.0",
+    "parcel-bundler": "^1.9.7",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "sass": "^1.10.2"
+  },
+  "dependencies": {
+    "content-type": "^1.0.4",
+    "fs-extra": "^7.0.0",
+    "mime-types": "^2.1.20"
+  }
+}
