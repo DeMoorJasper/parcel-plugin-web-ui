@@ -13,7 +13,7 @@ async function run() {
   });
 
   await WebUIPlugin(bundler);
-  await bundler.bundle();
+  await bundler.serve(1234, true);
 }
 
 run();

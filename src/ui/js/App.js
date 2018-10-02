@@ -14,6 +14,7 @@ export default class App extends React.Component {
 
   handleSocketMessage(evt) {
     let message = evt.data;
+    console.log(message);
     try {
       let messageJSON = JSON.parse(message);
       if (messageJSON.type === 'response') {

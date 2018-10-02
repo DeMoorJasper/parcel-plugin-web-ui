@@ -6,6 +6,8 @@ class Socket {
     this.bundler = options.bundler;
     
     this.server = null;
+
+    this.bundlerBuilding = false;
   }
 
   start() {
@@ -18,20 +20,30 @@ class Socket {
     return this.server;
   }
 
+  generateProjectData() {
+    let projectData = {};
+
+    // projectData.options = this.bundler.options;
+    projectData.status = 'watching';
+
+    if (this.bundler.server) {
+      let parcelServer = this.bundler.server;
+      projectData.previewUrl = `${parcelServer.key && parcelServer.cert ? 'https' : 'http'}://localhost:${parcelServer.address().port}`;
+    }
+
+    return projectData;
+  }
+
   handleClientRequest(ws, msg) {
     try {
       let messageJSON = JSON.parse(msg);
       if (messageJSON.type === 'request') {
         if (messageJSON.identifier === 'project-data') {
-          let response = {
+          ws.send(JSON.stringify({
             type: 'response',
             identifier: 'project-data',
-            data: {
-              options: this.bundler.options,
-              status: 'watching'
-            }
-          };
-          ws.send(JSON.stringify(response));
+            data: this.generateProjectData()
+          }));
         }
       }
     } catch(e) {}

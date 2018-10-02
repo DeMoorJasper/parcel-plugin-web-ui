@@ -7,7 +7,7 @@ export default class Project extends React.Component {
     }
     
     return <div className="project">
-      <h1 className="project-title">{this.props.project.name}</h1>
+      {this.props.project.previewUrl && <h1 className="project-title">Preview: <a href={this.props.project.previewUrl}>{this.props.project.previewUrl}</a></h1>}
       <div className="project-status-container">
         <div className={`project-status-animation-container ${this.props.project.status ==='watching' ? 'positive' : 'negative'}`}>
           <div className="project-status-circle"></div>
